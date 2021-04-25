@@ -57,9 +57,12 @@ public class LoomGradlePlugin implements Plugin<Project> {
 		project.apply(ImmutableMap.of("plugin", "eclipse"));
 		project.apply(ImmutableMap.of("plugin", "idea"));
 
-		// Setup extensions, loom shadows minecraft
-		project.getExtensions().create("minecraft", LoomGradleExtension.class, project);
-		project.getExtensions().add("loom", project.getExtensions().getByName("minecraft"));
+		// Setup extensions, minecraft shadows loom
+		project.getExtensions().create("loom", LoomGradleExtension.class, project);
+		project.getExtensions().add("minecraft", project.getExtensions().getByName("loom"));
+
+		// Setup component metadata rule so quilt loader provides fabric loader.
+		// project.getDependencies().getComponents().withModule("org.quiltmc:quilt-loader", LoaderProvidesFabricLoaderRule.class);
 
 		CompileConfiguration.setupConfigurations(project);
 		IdeConfiguration.setup(project);
