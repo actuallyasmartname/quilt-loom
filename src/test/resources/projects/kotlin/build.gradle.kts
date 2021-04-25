@@ -5,6 +5,10 @@ plugins {
 	id("org.quiltmc.loom")
 }
 
+repositories {
+	maven("https://maven.fabricmc.net")
+}
+
 java {
 	sourceCompatibility = JavaVersion.VERSION_1_8
 	targetCompatibility = JavaVersion.VERSION_1_8

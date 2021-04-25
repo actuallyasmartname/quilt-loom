@@ -28,7 +28,7 @@ import org.gradle.api.GradleException;
 import org.gradle.api.artifacts.ComponentMetadataContext;
 import org.gradle.api.artifacts.ComponentMetadataRule;
 
-public class LoaderProvidesFabricLoaderRule implements ComponentMetadataRule {
+public class QuiltLoaderProvidesFabricLoaderRule implements ComponentMetadataRule {
 	@Override
 	public void execute(ComponentMetadataContext context) {
 		context.getDetails().allVariants(variant -> {

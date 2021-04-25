@@ -62,7 +62,9 @@ public class LoomGradlePlugin implements Plugin<Project> {
 		project.getExtensions().add("minecraft", project.getExtensions().getByName("loom"));
 
 		// Setup component metadata rule so quilt loader provides fabric loader.
-		// project.getDependencies().getComponents().withModule("org.quiltmc:quilt-loader", LoaderProvidesFabricLoaderRule.class);
+		// TODO: Also have QSL provide fabric api?
+		project.getLogger().warn("You may need to exclude fabric api and fabric loader from dependencies for the time being!");
+		project.getDependencies().getComponents().withModule("net.quiltmc:quilt-loader", QuiltLoaderProvidesFabricLoaderRule.class);
 
 		CompileConfiguration.setupConfigurations(project);
 		IdeConfiguration.setup(project);

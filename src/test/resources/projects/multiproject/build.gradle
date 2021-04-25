@@ -5,9 +5,16 @@ plugins {
 }
 
 allprojects {
-	apply plugin: "fabric-loom"
+	apply plugin: "org.quiltmc.loom"
 
 	version = "1.0.0"
+
+	repositories {
+		// FIXME: Replace with QSL
+		maven {
+			url = "https://maven.fabricmc.net"
+		}
+	}
 
 	tasks.withType(JavaCompile).configureEach {
 		def targetVersion = 8
@@ -56,7 +63,8 @@ dependencies {
 		}
 	}
 
-	include fabricApi.module("fabric-api-base", "0.31.0+1.16")
+	// TODO: QSL
+	// include fabricApi.module("fabric-api-base", "0.31.0+1.16")
 }
 
 archivesBaseName = "multiproject"
