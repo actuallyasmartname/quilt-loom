@@ -203,3 +203,7 @@ task writeActionsTestMatrix() {
 		output.text = json
 	}
 }
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+}
